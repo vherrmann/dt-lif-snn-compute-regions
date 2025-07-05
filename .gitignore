@@ -1,0 +1,9 @@
+*.png
+*.csv
+__pycache__
+results/
+old/
+test/
+*.so
+build/
+.direnv
