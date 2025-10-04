@@ -17,7 +17,7 @@ vec2 first_layer(vec2 x, int iterations, vec2 u0, float beta, mat2 W, vec2 b, ma
     vec2 s = vec2(0,0);
     vec2 col = vec2(0,0);
     for (int i = 0; i < iterations; ++i) {
-        u = beta * u + W * x + b + V * s - theta * s;
+        u = beta * u + W * x + b + V * s - theta * beta * s;
         s = step(theta,u);
         col = col + pow(2.,float(-i))*s;
     }

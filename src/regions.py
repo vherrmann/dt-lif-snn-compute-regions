@@ -11,7 +11,7 @@ def first_layer(u0, β, W, b, V, ϑ, x):
     u = u0
     s = np.zeros_like(u0)
     while True:
-        u = β * u + W @ x + b + V @ s - ϑ * s
+        u = β * u + W @ x + b + V @ s - ϑ * β * s
         s = (u >= ϑ).astype(float)
         yield u, s
 

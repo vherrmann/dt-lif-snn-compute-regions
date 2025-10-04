@@ -33,7 +33,7 @@ uint[2] first_layer(dvec2 x, int iterations, dvec2 u0, double beta, mat2 V, doub
     uvec2 s = uvec2(0,0);
     uvec2 spiketr = uvec2(0,0);
     for (int i = 0; i < iterations; ++i) {
-        u = beta * u + W * x + b + V * s - theta * s;
+        u = beta * u + W * x + b + V * s - theta * beta * s;
         s = uvec2(step(theta,u));
         spiketr = (spiketr << 1) + s;
     }

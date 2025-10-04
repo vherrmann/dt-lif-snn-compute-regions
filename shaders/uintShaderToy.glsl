@@ -17,7 +17,7 @@ uint[4] first_layer(vec2 x, SNNConfig conf)
     uvec2 spiketrLow = uvec2(0,0);
     uvec2 spiketrUp = uvec2(0,0);
     for (int i = 0; i < conf.iterations; ++i) {
-        u = conf.beta * u + conf.W * x + conf.b + conf.V * vec2(s) - conf.theta * vec2(s);
+        u = conf.beta * u + conf.W * x + conf.b + conf.V * vec2(s) - conf.theta * conf.beta * vec2(s);
         s = uvec2(step(conf.theta,u));
         spiketrUp = (spiketrUp << 1) + (spiketrLow >> 31);
         spiketrLow = (spiketrLow << 1) + s;

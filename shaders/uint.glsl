@@ -26,7 +26,7 @@ uint[4] first_layer(dvec2 x, int iterations, dvec2 u0, double beta, mat2 W, dvec
     uvec2 spiketrLow = uvec2(0,0);
     uvec2 spiketrUp = uvec2(0,0);
     for (int i = 0; i < iterations; ++i) {
-        u = beta * u + W * x + b + V * s - theta * s;
+        u = beta * (u - theta * s) + W * x + b + V * s;
         s = uvec2(step(theta,u));
         spiketrUp = (spiketrUp << 1) + (spiketrLow >> 31);
         spiketrLow = (spiketrLow << 1) + s;

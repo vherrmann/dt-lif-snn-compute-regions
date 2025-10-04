@@ -36,7 +36,7 @@
           ];
           shellHook = ''
             export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${pkgs.libGL}/lib:${pkgs.libGLU}/lib
-            export CPATH=$CPATH:${myPython}/include
+            export CPATH=''${CPATH:+$CPATH:}${myPython}/include:${myPython}/include/python3.12
           '';
         };
       }
