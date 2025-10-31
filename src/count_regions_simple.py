@@ -74,6 +74,10 @@ class CountRegionsSimple(CountRegions):
                 shader.run(group_x=size // 32, group_y=size // 32)
 
                 regions_n = self.countUniqueChunks(bufData, size, resSize)
+                if self.spikeTrp:
+                    regionsSt = self.getSpiketrains(bufData, size, resSize)
+                    if len(regionsSt) > 0:
+                        self.printSpikeTrains(regionsSt, resSize, iterations)
 
                 imageArray = None
                 if self.imagep:

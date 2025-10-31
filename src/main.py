@@ -18,16 +18,24 @@ def once(v):
 
 ls = np.linspace
 itpr = itertools.product
-iterationsR = range(10, 20)
-u0R = itpr(ls(0.0123456789, 1, 5), ls(0.0123456789, 1, 5))
-betaR = ls(0.5, 1, 10)
+# iterationsR = range(10, 20, 3)
+# u0R = itpr(ls(0.0123456789, 1, 3), ls(0.0123456789, 1, 3))
+# betaR = ls(0.9, 1, 10)
+# WR = once((1.0, 0.0, 0.0, 1.0))  # doesn't increase number of regions if changed
+# bR = once((0.0, 0.0))  # doesn't increase number of regions if changed
+# VR = itpr(once(0), ls(0.1, 0.5, 3), ls(-0.5, 0.5, 5), once(0))
+# thetaR = once(1)
+iterationsR = once(10)
+u0R = once((0, 0))
+betaR = once(0.9)
 WR = once((1.0, 0.0, 0.0, 1.0))  # doesn't increase number of regions if changed
 bR = once((0.0, 0.0))  # doesn't increase number of regions if changed
-VR = itpr(ls(-1, 1, 10), ls(-1, 1, 10), ls(-1, 1, 10), ls(-1, 1, 10))
-thetaR = ls(0, 1, 10)
-scale = 2
-offset = -0.5, -0.5
+VR = once((0.0, 0.3, -0.2, 0.0))
+thetaR = once(1)
+scale = 4
+offset = -1.11263, -1.11263
 maxSizePot2 = 12  # size = 2**maxSizePot2
+
 
 if efficientp:
     counter = CountRegionsEfficient(

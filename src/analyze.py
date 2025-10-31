@@ -6,7 +6,7 @@ X = np.arange(32)
 
 plt.rcParams.update({"font.size": 14})
 
-for file_path in glob.glob("output4096.csv"):
+for file_path in glob.glob("/tmp/output.csv"):
     data = np.loadtxt(file_path, delimiter=",")
     # plt.plot(X, data[:32], label="#Counted Regions")
 
